@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>📚 Library Dashboard</h1>
+
+<a href="/add" class="add-btn">+ Add Book</a>
+
+<!-- SEARCH -->
+<form method="GET" class="search-box">
+    <input type="text" name="search" placeholder="Search..." value="{{ search_query }}">
+    <button type="submit">Search</button>
+</form>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="stat-card"><h3>{{ total }}</h3><p>Total</p></div>
+    <div class="stat-card"><h3>{{ issued }}</h3><p>Issued</p></div>
+    <div class="stat-card"><h3>{{ available }}</h3><p>Available</p></div>
+    <div class="stat-card overdue-stat"><h3>{{ overdue }}</h3><p>Overdue</p></div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+    <a href="/?filter=all" class="{% if current_filter=='all' %}active{% endif %}">All</a>
+    <a href="/?filter=issued" class="{% if current_filter=='issued' %}active{% endif %}">Issued</a>
+    <a href="/?filter=available" class="{% if current_filter=='available' %}active{% endif %}">Available</a>
+</div>
+
+<!-- BOOK GRID -->
+<div class="grid">
+{% for book in books %}
+<div class="card 
+    {% if book.is_overdue() %}overdue
+    {% elif not book.issued %}available-glow
+    {% endif %}">
+
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.author }}</p>
+
+    {% if not book.issued %}
+    <span class="available-badge">✔ Available</span>
+    {% endif %}
+
+    {% if book.is_overdue() %}
+    <span class="overdue-badge">⚠ Overdue</span>
+    {% endif %}
+
+    {% if book.due_date %}
+    <p>Due: {{ book.due_date.strftime('%d %b %Y') }}</p>
+    {% endif %}
+
+    {% if book.issued %}
+    <p class="fine">Fine: ₹{{ book.calculate_fine() }}</p>
+    {% endif %}
+
+    <!-- ISSUE FORM -->
+    {% if not book.issued %}
+    <form action="/issue/{{book.id}}" method="POST">
+        <input type="number" name="days" placeholder="Days" required>
+        <input type="number" name="fine" placeholder="Fine/day ₹" required>
+        <button type="submit">Issue</button>
+    </form>
+    {% endif %}
+
+    <div class="actions">
+        <a href="/reissue/{{book.id}}">Reissue</a>
+        <a href="/delete/{{book.id}}" class="delete">Delete</a>
+    </div>
+
+</div>
+{% endfor %}
+</div>
+
+</div>
+</body>
+</html>
