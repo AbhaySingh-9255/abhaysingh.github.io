@@ -62,23 +62,6 @@ I enjoy turning ideas into functional applications, exploring backend developmen
 
 # 🚀 Featured Projects
 
-## 🏥 AI Healthcare Platform
-
-An AI-powered healthcare web application designed to make basic health assistance more accessible.
-
-### Key Features
-
-- 🤖 AI-powered health assistance
-- 📊 Personalized health dashboard
-- 🧠 Intelligent recommendations
-- 📋 Health information management
-- 🔔 Smart notifications
-- 📱 Responsive web interface
-
-**Tech:** `JavaScript` `React` `AI` `Web Development`
-
----
-
 ## 🎓 Student Personalized Tracker
 
 A student-focused productivity and academic tracking platform.
