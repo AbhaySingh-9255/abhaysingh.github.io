@@ -79,25 +79,6 @@ An AI-powered healthcare web application designed to make basic health assistanc
 
 ---
 
-## 🆘 SilentSOS
-
-An emergency assistance application designed to help users send emergency alerts with minimal interaction.
-
-### Key Features
-
-- 🆘 Emergency trigger system
-- 📍 Live location sharing
-- 📱 SMS fallback
-- 🎙️ Voice-based trigger
-- 📳 Shake detection
-- 🔋 Low-power mode
-- 🌐 Network fallback
-- 👨‍👩‍👧 Guardian dashboard
-
-**Tech:** `Android` `Java/Kotlin` `Firebase` `GPS` `AI`
-
----
-
 ## 🎓 Student Personalized Tracker
 
 A student-focused productivity and academic tracking platform.
