@@ -112,6 +112,12 @@ A management application designed to simplify daily dairy operations.
 
 ---
 
+### 🌡️ ESP32 Live Temperature & Humidity Monitor
+
+An IoT-based real-time temperature and humidity monitoring system built using **ESP32 and DHT11**. The sensor data is transmitted over Wi-Fi to a **Flask REST API** and displayed on a live web dashboard with **JavaScript and Chart.js**.
+
+**Tech:** ESP32 • DHT11 • C++ • Flask • REST API • HTML • CSS • JavaScript • Chart.js
+
 # 🧠 Currently Learning
 
 ```text
